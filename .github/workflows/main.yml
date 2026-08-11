@@ -1,0 +1,14 @@
+name: aws_s3
+on: push
+jobs:
+  action-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload to s3
+        uses: actions/checkout@v4
+      - name: aws configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{vars.ACCESS_KEY_ID}}
+          aws-secret-key-id: ${{secrets.SECRET_ACCESS_KEY}}
+          region: ap-south-1
